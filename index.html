@@ -9,13 +9,19 @@
 </head>
 <body>
     <H3>Insira Dados!</H3>
-
-    <textarea name="texto" id="area" cols="30" rows="10"class="form-control"></textarea>
+    <form >
+    <textarea name="texto" id="objetoUser" cols="30" rows="10"class="form-control"></textarea>
     <br><br>
-    <button type="submit"class="btn btn-primary"id="sub">Submeter</button>
+    <button type="submit"class="btn btn-primary "id="sub" onclick="add()">Submeter</button>
+    </form>
     <script>
     
+    function add (){
+        let objeto = document.getElementById("objetoUser");
+        console.log(objeto)
+    }
         
+
     
     </script>
 </body>
