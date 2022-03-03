@@ -6,38 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EX1-DMA1</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
 </head>
 <body>
     <H3>Insira A Sua Lista!!!</H3>
-    <form >
-    <input type="text" id="objetoUser"class="form-control">
-    <br><br>
-    <button type="submit" class="btn btn-primary" onclick="addobject()">Submeter</button>
+    <div id="app">
+
+    </div>
     
-    <br>
-    <ul class="list-group">
-            <li class="list-group-item"></li>
-            <li class="list-group-item"></li>
-            <li class="list-group-item"></li>
-            <li class="list-group-item"></li>
-            <li class="list-group-item"></li>
-    </ul>
-
-    </form>
-
     <script>
     
-    function addobject(){
+    let appElement = document.querySelector("#app");
 
-        let objeto = document.getElementById("objetoUser");
-        objeto = objeto.value;
+    let buttonElement = document.createElement('button');
+    let inputElement = document.createElement('input');
+    let listElement = document.createElement('ul');
+   
+    buttonElement.appendChild(document.createTextNode('Adicionar'));
+
+    appElement.appendChild(inputElement);
+    appElement.appendChild(buttonElement);
+    appElement.appendChild(listElement);
 
 
-        
-        
+    inputElement.setAttribute('id', 'nome');
+    inputElement.setAttribute('type', 'text');
+    inputElement.setAttribute('class','form-control');
+
+    listElement.setAttribute('id', 'lista');
+    listElement.setAttribute('class','list-group-item list-group-item-dark');
+
+    buttonElement.setAttribute('class','btn btn-primary');
+
+
+    function adiciona() {
+
+        let nomeNovo = inputElement.value;
+        let itemLista = document.createElement('li')
+
+        itemLista.appendChild(document.createTextNode(nomeNovo));
+
+        listElement.appendChild(itemLista);
+        inputElement.value = "";
+
     }
-        
-    
+    buttonElement.onclick = function(){
+
+    adiciona();
+
+
+    }           
+
+
     </script>
 </body>
 </html>
